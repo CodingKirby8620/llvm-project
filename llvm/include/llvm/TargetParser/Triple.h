@@ -56,6 +56,7 @@ public:
     bpfel,          // eBPF or extended BPF or 64-bit BPF (little endian)
     bpfeb,          // eBPF or extended BPF or 64-bit BPF (big endian)
     csky,           // CSKY: csky
+    cpu0,           // Cpu0 Test Backend
     dxil,           // DXIL 32-bit DirectX bytecode
     hexagon,        // Hexagon: hexagon
     loongarch32,    // LoongArch (32-bit): loongarch32
@@ -992,6 +993,11 @@ public:
   /// Tests whether the target is MIPS (little and big endian, 32- or 64-bit).
   bool isMIPS() const {
     return isMIPS32() || isMIPS64();
+  }
+
+  /// Tests whether the target is Cpu0
+  bool isCpu0() const {
+    return getArch() == Triple::cpu0;
   }
 
   /// Tests whether the target is PowerPC (32- or 64-bit LE or BE).
